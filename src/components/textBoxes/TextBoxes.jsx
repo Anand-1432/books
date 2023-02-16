@@ -144,11 +144,11 @@ const TextBoxes = () => {
                                 <div className='row'>
                                     <div className="form-group col-md-6 col-lg-6 col-xl-6">
                                         <label>Name</label>
-                                        <input type="text" classname="form-control"/>
+                                        <input type="text" className="form-control"/>
                                     </div>
                                     <div className="form-group col-md-6 col-lg-6 col-xl-6">
                                         <label>Email</label>
-                                        <input type="email" classname="form-control"/>
+                                        <input type="email" className="form-control"/>
                                     </div>
                                 </div>
                             </div>
@@ -157,7 +157,7 @@ const TextBoxes = () => {
                                 <div className='row'>
                                     <div className="form-group col-md-6 col-lg-6 col-xl-6">
                                         <label>Subject</label>
-                                        <input type="text" classname="form-control"/>
+                                        <input type="text" className="form-control"/>
                                     </div>
                                     <div className="form-group col-md-6 col-lg-6 col-xl-6">
                                         <label>Order no.</label>
