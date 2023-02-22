@@ -6,14 +6,14 @@ import FeeManagement from './pages/feeManagement/FeeManagement'
 import Home from './pages/home/Home'
 import Setting from './pages/setting/Setting'
 
-import array from './Array.json'
+import { getBook } from './actions/bookAction'
 
 const App = () => {
 
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch({ type: REQUEST_BOOKS, payload: array });
+    dispatch(getBook());
   }, []);
 
   return (

@@ -6,19 +6,34 @@ const bookReducer = (state = { books: [] }, action) => {
         case REQUEST_BOOKS:
             return {
                 ...state,
-                books: action.payload
+                isloading: true,
             }
+
 
         case ADD_BOOKS:
             return {
                 ...state,
-                books: [...state.books, action.payload]
+                books: [...state.books, action.payload],
+                isloading: false
             }
+
+        case SUCCESS_BOOKS:
+            const newdata = action.payload.map((obj) => {
+                if (obj._id == action.payload._id) {
+                    return { ...obj, status: false };
+                }
+                return obj;
+            })
+            return {
+                ...state,
+                books: newdata,
+            }
+
 
         case MAKE_SUB:
             console.log(action.payload);
             const data = state.books.map((obj) => {
-                if (obj.id == action.payload) {
+                if (obj._id == action.payload) {
                     return { ...obj, status: true };
                 }
                 return obj;

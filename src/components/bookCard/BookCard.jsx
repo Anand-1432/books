@@ -6,7 +6,7 @@ import { Button } from '@mui/material'
 import { useDispatch, useSelector } from 'react-redux'
 import { makeSubscribe } from '../../actions/bookAction'
 
-const BookCard = ({ data }) => {
+const BookCard = ({ data, fun }) => {
 
   const dispatch = useDispatch();
 
@@ -14,12 +14,10 @@ const BookCard = ({ data }) => {
     dispatch(makeSubscribe(id));
   }
 
-  console.log(data);
-
 
   return (
     <>
-      <div className='bookCard'>
+      <div className='bookCard' onClick={(e) => fun(data)}>
 
         <div className='imgCon'>
           <img src={data.image ? data.image : book} alt="" />
@@ -29,7 +27,7 @@ const BookCard = ({ data }) => {
 
         <div className='btnSection'>
           {data.status ? <Button className='but1' variant='outlined' disabled>Subscribed</Button> : null}
-          {!data.status ? <Button className='but' variant='outlined' onClick={() => makeSub(data.id)}>Subscribe</Button> : null}
+          {!data.status ? <Button className='but' variant='outlined' onClick={(e) => { e.stopPropagation(); makeSub(data._id) }}>Subscribe</Button> : null}
         </div>
 
       </div>

@@ -6,11 +6,13 @@ import { Button } from '@mui/material'
 import SideBar from '../../components/sidebar/SideBar'
 import './setting.scss'
 import { useSelector } from 'react-redux'
+import Details from '../../components/details/Details'
+import Loader from '../../components/loader/Loader'
 
 const Setting = () => {
 
     const [state, setState] = useState("add");
-    const { books } = useSelector(state => state.bookReducer);
+    const { books, isloading } = useSelector(state => state.bookReducer);
 
     const [bookArray, setBookArray] = useState([]);
     const [subscribe, setSubscribe] = useState([]);
@@ -24,6 +26,20 @@ const Setting = () => {
             setSubscribe(sub);
         }
     }, [books]);
+
+
+    const [open, setOpen] = useState(false);
+    const [data, setData] = useState();
+
+    const getDetails = (book_data) => {
+        setData(book_data);
+        setOpen(true);
+    }
+
+    const close = () => {
+        setOpen(false);
+    }
+
 
     return (
         <>
@@ -48,7 +64,7 @@ const Setting = () => {
                         {state == "book" && <div className='listingSection'>
                             {bookArray.map((val, index) => {
                                 return (
-                                    <BookCard data={val} key={index} />
+                                    <BookCard data={val} key={index} fun={getDetails} />
                                 );
                             })}
                         </div>}
@@ -65,6 +81,14 @@ const Setting = () => {
                     </div>
 
                 </div>
+
+
+                {/* /////////////////////////////////////////////////////// */}
+                {open ? <Details fun={close} data={data} /> : null}
+                {/* /////////////////////////////////////////////////////// */}
+                {isloading ? <Loader /> : null}
+                {/* /////////////////////////////////////////////////////// */}
+
             </div>
         </>
     )

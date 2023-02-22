@@ -1,0 +1,45 @@
+.details{
+    width: 100vw;
+    height: 100vh;
+    min-width: 1200px;
+    max-height: 750px;
+    background-color: rgba(0, 0, 0, 0.4);
+    position: absolute;
+    top:0px;
+    left: 0px;
+    z-index: 2;
+    display: grid;
+    place-content: center;
+    cursor: pointer;
+
+    .deatailsSection{
+        width: 400px;
+        height: 500px;
+        background-color: white;
+        border-radius: 10px;
+        padding: 25px;
+
+        .bookImg{
+            width: 230px;
+            height: 250px;
+            margin: auto;
+            border-radius: 10px;
+            img{
+                width: 100%;
+                height: 100%;
+            }
+        }
+
+        table{
+            width: 100%;
+            margin-top: 20px;
+
+            tr{
+                td{
+                    padding-top: 5px;
+                    min-width: 20px;
+                }
+            }
+        }
+    }
+}
