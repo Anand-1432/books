@@ -1,19 +1,21 @@
 import React from 'react'
 import Header from '../../components/header/Header'
 import SideBar from '../../components/sidebar/SideBar'
-import './home.scss'
+import './feeManagement.scss'
 
 import gif from '../../assets/coming.gif'
 
-const Home = () => {
+
+const FeeManagement = () => {
     return (
         <>
-            <div className='home'>
+            <div className='fee'>
                 <div className='grid'>
                     <SideBar />
+
                     <div className='inner'>
 
-                        <Header page="Dashborad" />
+                        <Header page="Fee Management" />
 
                         <div className='comingSoon'>
                             <div>
@@ -28,4 +30,4 @@ const Home = () => {
     )
 }
 
-export default Home
+export default FeeManagement

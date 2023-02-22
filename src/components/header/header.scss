@@ -1,0 +1,29 @@
+.header {
+    padding-left: 20px;
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    line-height: 50px;
+    padding-right: 50px;
+    
+    h3 {
+        font-weight: 700;
+        color: #474747;
+    }
+
+    .itemSection {
+        margin-left: auto;
+        width: 150px;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        
+        div{
+            display: grid;
+            place-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgb(237, 237, 237);
+            border-radius: 50%;
+            cursor: pointer;
+        }
+    }
+}
