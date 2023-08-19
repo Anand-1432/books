@@ -27,6 +27,7 @@ const bookReducer = (state = { books: [] }, action) => {
             return {
                 ...state,
                 books: newdata,
+                isloading:false
             }
 
 

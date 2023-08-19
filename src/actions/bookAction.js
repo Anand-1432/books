@@ -5,7 +5,7 @@ export const addBook = (bookdata, redirect) => async (dispatch) => {
     try {
         dispatch({ type: REQUEST_BOOKS });
         const config = { headers: { "Content-Type": "application/json" } };
-        const { data } = await axios.post('https://bookbakend3.onrender.com/add_book', bookdata, config);
+        const { data } = await axios.post('https://book-backend-zzbu.onrender.com/add_book', bookdata, config);
         dispatch({ type: ADD_BOOKS, payload: data.data });
         redirect();
     } catch (error) {
@@ -15,8 +15,9 @@ export const addBook = (bookdata, redirect) => async (dispatch) => {
 
 export const getBook = () => async (dispatch) => {
     try {
+        dispatch({ type: REQUEST_BOOKS });
         const config = { headers: { "Content-Type": "application/json" } };
-        const { data } = await axios.get('https://bookbakend3.onrender.com/get_book', config);
+        const { data } = await axios.get('https://book-backend-zzbu.onrender.com/get_book', config);
         dispatch({ type: SUCCESS_BOOKS, payload: data });
     } catch (error) {
         console.log(error);
